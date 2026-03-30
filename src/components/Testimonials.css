@@ -1,0 +1,98 @@
+.testimonials-section { background: var(--bg-secondary); }
+.testimonials-section .section-header { margin-bottom: 48px; }
+.testimonials-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.testimonials-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+}
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.testimonial-stars { display: flex; gap: 2px; }
+.star { color: #f59e0b; font-size: 1.1rem; }
+.testimonial-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  flex: 1;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient);
+  color: #0a0f1c;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border-radius: 12px;
+}
+.testimonial-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.testimonial-nav {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.testimonial-nav:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dot.active {
+  background: var(--accent);
+  width: 28px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-track { grid-template-columns: 1fr; }
+  .testimonial-nav { display: none; }
+}
