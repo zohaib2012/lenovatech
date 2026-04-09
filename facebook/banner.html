@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LenovaTech Facebook Banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  /* Facebook Cover: 820x312 */
+  .banner {
+    width: 820px;
+    height: 312px;
+    background: linear-gradient(135deg, #0a0f1c 0%, #111827 40%, #0a0f1c 100%);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Animated gradient orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+  .orb-1 {
+    width: 300px; height: 300px;
+    background: rgba(0, 191, 165, 0.15);
+    top: -100px; right: 50px;
+  }
+  .orb-2 {
+    width: 200px; height: 200px;
+    background: rgba(74, 222, 128, 0.1);
+    bottom: -80px; left: 100px;
+  }
+  .orb-3 {
+    width: 150px; height: 150px;
+    background: rgba(0, 191, 165, 0.08);
+    top: 50%; left: 35%;
+  }
+
+  /* Grid pattern overlay */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,191,165,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,191,165,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Hexagon decoration */
+  .hex {
+    position: absolute;
+    width: 60px; height: 60px;
+    border: 2px solid rgba(0, 191, 165, 0.15);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .hex-1 { top: 30px; right: 80px; transform: rotate(15deg); }
+  .hex-2 { bottom: 40px; right: 200px; width: 40px; height: 40px; transform: rotate(-10deg); border-color: rgba(74,222,128,0.12); }
+  .hex-3 { top: 60px; left: 60%; width: 30px; height: 30px; border-color: rgba(0,191,165,0.1); }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .left {
+    flex: 1;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .logo-hex {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 900; color: #0a0f1c;
+  }
+  .logo-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -0.5px;
+  }
+  .logo-name span {
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tagline {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #00bfa5;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 28px;
+    font-weight: 900;
+    color: #f1f5f9;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .headline span {
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sub {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .service-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(0, 191, 165, 0.08);
+    border: 1px solid rgba(0, 191, 165, 0.2);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2dd4bf;
+    white-space: nowrap;
+  }
+  .service-pill .dot {
+    width: 6px; height: 6px;
+    background: #00bfa5;
+    border-radius: 50%;
+  }
+
+  .contact-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    padding: 10px 60px;
+    background: rgba(0, 191, 165, 0.06);
+    border-top: 1px solid rgba(0, 191, 165, 0.1);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 3;
+  }
+  .contact-item {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-item strong {
+    color: #94a3b8;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-overlay"></div>
+  <div class="hex hex-1"></div>
+  <div class="hex hex-2"></div>
+  <div class="hex hex-3"></div>
+
+  <div class="content">
+    <div class="left">
+      <div class="logo-row">
+        <div class="logo-hex">L</div>
+        <div class="logo-name">Lenova<span>Tech</span></div>
+      </div>
+      <div class="tagline">Innovative IT Solutions</div>
+      <div class="headline">We Build <span>Digital Products</span><br>That Drive Growth</div>
+      <div class="sub">Full-stack web & mobile development agency. MERN Stack + React Native. Trusted by 50+ businesses since 2017.</div>
+    </div>
+    <div class="right">
+      <div class="service-pill"><span class="dot"></span> Web Development</div>
+      <div class="service-pill"><span class="dot"></span> Mobile Apps (iOS & Android)</div>
+      <div class="service-pill"><span class="dot"></span> Custom Software & SaaS</div>
+      <div class="service-pill"><span class="dot"></span> E-Commerce Solutions</div>
+      <div class="service-pill"><span class="dot"></span> ERP & CRM Systems</div>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <div class="contact-item">📞 <strong>0330-6553479</strong></div>
+    <div class="contact-item">📧 <strong>lenovatech69@gmail.com</strong></div>
+    <div class="contact-item">🌐 <strong>lenovatech.site</strong></div>
+    <div class="contact-item">📍 <strong>Lahore, Pakistan</strong></div>
+  </div>
+</div>
+
+</body>
+</html>

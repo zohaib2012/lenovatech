@@ -1,5 +1,6 @@
 import { HiHeart } from 'react-icons/hi';
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import Logo from './Logo';
 import './Footer.css';
 
 const footerLinks = {
@@ -40,8 +41,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <a href="#home" className="footer-logo">
-              <span className="logo-icon">L</span>
-              <span className="logo-text">Lenova<span className="gradient-text">Tech</span></span>
+              <Logo size={36} />
             </a>
             <p className="footer-desc">
               Full-stack development agency delivering scalable web, mobile, and enterprise solutions since 2017.

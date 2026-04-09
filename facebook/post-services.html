@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LenovaTech - Services Post</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  /* Facebook Post: 1080x1080 */
+  .post {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(160deg, #0a0f1c 0%, #111827 50%, #0a0f1c 100%);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  .orb-1 { width: 400px; height: 400px; background: rgba(0,191,165,0.12); top: -100px; right: -50px; }
+  .orb-2 { width: 300px; height: 300px; background: rgba(74,222,128,0.08); bottom: -50px; left: -50px; }
+
+  .grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,191,165,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,191,165,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .content { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .logo-row {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-hex {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 900; color: #0a0f1c;
+  }
+  .logo-name {
+    font-size: 24px; font-weight: 800; color: #f1f5f9;
+  }
+  .logo-name span {
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .website-tag {
+    font-size: 14px; color: #00bfa5; font-weight: 600;
+    padding: 8px 20px;
+    border: 1px solid rgba(0,191,165,0.3);
+    border-radius: 100px;
+  }
+
+  .label {
+    font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 4px; color: #00bfa5; margin-bottom: 16px;
+  }
+  .label::before {
+    content: ''; display: inline-block;
+    width: 30px; height: 2px; background: linear-gradient(135deg, #00bfa5, #4ade80);
+    margin-right: 12px; vertical-align: middle;
+  }
+
+  .title {
+    font-size: 48px; font-weight: 900; color: #f1f5f9;
+    line-height: 1.15; margin-bottom: 40px;
+  }
+  .title span {
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+  .service-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(0,191,165,0.12);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s;
+  }
+  .service-icon {
+    font-size: 32px;
+    margin-bottom: 4px;
+  }
+  .service-name {
+    font-size: 18px; font-weight: 700; color: #f1f5f9;
+  }
+  .service-desc {
+    font-size: 13px; color: #94a3b8; line-height: 1.5;
+  }
+
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,191,165,0.1);
+  }
+  .cta {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #00bfa5, #4ade80);
+    color: #0a0f1c;
+    font-size: 16px; font-weight: 700;
+    border-radius: 12px;
+  }
+  .contact-info {
+    display: flex; flex-direction: column; gap: 4px;
+    align-items: flex-end;
+  }
+  .contact-info span {
+    font-size: 13px; color: #64748b;
+  }
+  .contact-info strong {
+    color: #94a3b8;
+  }
+</style>
+</head>
+<body>
+
+<div class="post">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="content">
+    <div class="top-bar">
+      <div class="logo-row">
+        <div class="logo-hex">L</div>
+        <div class="logo-name">Lenova<span>Tech</span></div>
+      </div>
+      <div class="website-tag">lenovatech.site</div>
+    </div>
+
+    <div class="label">Our Services</div>
+    <div class="title">What We <span>Build</span><br>For You</div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <div class="service-name">Web Development</div>
+        <div class="service-desc">Modern websites, SPAs, dashboards & admin panels with React.js</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Mobile Apps</div>
+        <div class="service-desc">Cross-platform iOS & Android apps with React Native</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <div class="service-name">E-Commerce</div>
+        <div class="service-desc">Complete online stores with payments, inventory & checkout</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <div class="service-name">Custom Software</div>
+        <div class="service-desc">ERP, CRM, SaaS, POS, LMS — tailored business systems</div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="cta">Get a Free Quote →</div>
+      <div class="contact-info">
+        <span>📞 <strong>0330-6553479</strong></span>
+        <span>📧 <strong>lenovatech69@gmail.com</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

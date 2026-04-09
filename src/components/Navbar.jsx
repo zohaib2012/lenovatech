@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
 import { BsSun, BsMoon } from 'react-icons/bs';
+import Logo from './Logo';
 import './Navbar.css';
 
 const navLinks = [
@@ -46,10 +47,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#home" className="nav-logo" onClick={() => handleClick('#home')}>
-          <span className="logo-icon">L</span>
-          <span className="logo-text">
-            Lenova<span className="gradient-text">Tech</span>
-          </span>
+          <Logo size={42} />
         </a>
 
         <div className={`nav-links ${mobileOpen ? 'open' : ''}`}>

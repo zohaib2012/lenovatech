@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { HiPhone, HiMail, HiGlobe, HiLocationMarker, HiClock } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
 import './Contact.css';
+
+// ── EmailJS Config — Replace these with your actual keys ──
+const EMAILJS_SERVICE_ID = 'service_gba0iad';
+const EMAILJS_TEMPLATE_ID = 'template_drk90ga';
+const EMAILJS_PUBLIC_KEY = 'BGdpzI0L7saRj4McA';
 
 const contactInfo = [
   { icon: <HiPhone size={20} />, label: 'Phone', value: '0330-6553479', href: 'tel:+923306553479' },
@@ -14,17 +20,42 @@ const contactInfo = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', project: '', budget: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`New Project Inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nProject Type: ${form.project}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
-    );
-    window.open(`mailto:lenovatech69@gmail.com?subject=${subject}&body=${body}`);
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setStatus('sending');
+
+    const now = new Date();
+    const time = now.toLocaleString('en-PK', { dateStyle: 'full', timeStyle: 'short' });
+
+    const templateParams = {
+      name: `${form.name} (${form.email}${form.phone ? ', ' + form.phone : ''})`,
+      time: `${time}\nProject: ${form.project || 'Not specified'}\nBudget: ${form.budget || 'Not specified'}`,
+      message: form.message,
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
+      publicKey: EMAILJS_PUBLIC_KEY,
+    })
+      .then(() => {
+        setStatus('sent');
+        setForm({ name: '', email: '', phone: '', project: '', budget: '', message: '' });
+        setTimeout(() => setStatus('idle'), 4000);
+      })
+      .catch((err) => {
+        console.error('EmailJS Error:', err);
+        // Fallback: open mailto with form data if EmailJS fails on live
+        const subject = encodeURIComponent(`New Project Inquiry from ${form.name}`);
+        const body = encodeURIComponent(
+          `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || 'N/A'}\nProject Type: ${form.project || 'Not specified'}\nBudget: ${form.budget || 'Not specified'}\n\nProject Details:\n${form.message}`
+        );
+        window.open(`mailto:lenovatech69@gmail.com?subject=${subject}&body=${body}`, '_self');
+        setStatus('sent');
+        setForm({ name: '', email: '', phone: '', project: '', budget: '', message: '' });
+        setTimeout(() => setStatus('idle'), 4000);
+      });
   };
 
   return (
@@ -106,8 +137,8 @@ export default function Contact() {
               <label>Project Details *</label>
               <textarea required rows={5} placeholder="Tell us about your project, goals, and timeline..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
             </div>
-            <button type="submit" className="btn btn-primary contact-submit">
-              {sent ? '✓ Message Sent!' : 'Send Message'}
+            <button type="submit" className="btn btn-primary contact-submit" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending...' : status === 'sent' ? '✓ Message Sent Successfully!' : status === 'error' ? '✗ Failed — Try Again' : 'Send Message'}
             </button>
           </form>
         </div>

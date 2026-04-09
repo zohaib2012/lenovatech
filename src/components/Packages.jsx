@@ -7,8 +7,8 @@ const devPackages = [
     name: 'Starter',
     icon: <HiStar size={24} />,
     tagline: 'Perfect for small businesses & startups',
-    price: '75,000',
-    priceUsd: '250',
+    price: '30,000',
+    priceUsd: '110',
     timeline: '2-3 Weeks',
     bestFor: 'Business websites, portfolios, landing pages',
     features: [
@@ -37,8 +37,8 @@ const devPackages = [
     name: 'Professional',
     icon: <HiLightningBolt size={24} />,
     tagline: 'For growing businesses & web apps',
-    price: '2,00,000',
-    priceUsd: '700',
+    price: '60,000',
+    priceUsd: '215',
     timeline: '4-8 Weeks',
     bestFor: 'E-commerce, booking platforms, web apps, portals',
     features: [
@@ -67,8 +67,8 @@ const devPackages = [
     name: 'Enterprise',
     icon: <HiSparkles size={24} />,
     tagline: 'For large-scale enterprise systems',
-    price: '5,00,000',
-    priceUsd: '1,800',
+    price: '1,00,000',
+    priceUsd: '360',
     timeline: '8-16+ Weeks',
     bestFor: 'ERP, SaaS, CRM, enterprise & multi-module systems',
     features: [
