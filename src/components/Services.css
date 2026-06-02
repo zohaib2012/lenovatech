@@ -11,6 +11,7 @@
   gap: 12px;
   margin-bottom: 48px;
   flex-wrap: wrap;
+  position: relative;
 }
 .services-tab {
   display: flex;
@@ -26,16 +27,35 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.services-tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .services-tab:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+.services-tab:hover::before {
+  transform: scaleX(0.5);
 }
 .services-tab.active {
   background: var(--gradient);
   color: #0a0f1c;
   border-color: transparent;
   box-shadow: 0 4px 20px rgba(0, 191, 165, 0.3);
+}
+.services-tab.active::before {
+  display: none;
 }
 .services-grid {
   display: grid;
@@ -45,6 +65,7 @@
 .service-card {
   position: relative;
   overflow: hidden;
+  perspective: 1000px;
 }
 .service-card::before {
   content: '';
@@ -60,6 +81,21 @@
 .service-card:hover::before {
   opacity: 1;
 }
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 191, 165, 0.06), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.service-card:hover::after {
+  opacity: 1;
+}
 .service-icon {
   width: 56px;
   height: 56px;
@@ -70,6 +106,14 @@
   border-radius: 14px;
   color: var(--accent);
   margin-bottom: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.service-card:hover .service-icon {
+  background: var(--gradient);
+  color: #0a0f1c;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 191, 165, 0.3);
 }
 .service-title {
   font-size: 1.15rem;
@@ -89,10 +133,18 @@
   border-radius: 2px;
   margin-top: 20px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: width 0.4s ease, opacity 0.3s ease;
 }
 .service-card:hover .service-line {
   opacity: 1;
+  width: 60px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card, .service-icon, .service-line, .services-tab::before {
+    transition: none !important;
+  }
+  .service-card::after { display: none; }
 }
 
 @media (max-width: 900px) {

@@ -15,8 +15,22 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
-.testimonial-stars { display: flex; gap: 2px; }
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 4rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: var(--accent);
+  opacity: 0.12;
+  pointer-events: none;
+}
+.testimonial-stars { display: flex; gap: 2px; padding-left: 4px; }
 .star { color: #f59e0b; font-size: 1.1rem; }
 .testimonial-text {
   font-size: 0.92rem;
@@ -24,6 +38,8 @@
   line-height: 1.8;
   flex: 1;
   font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 .testimonial-author {
   display: flex;
@@ -35,6 +51,7 @@
 .testimonial-avatar {
   width: 44px;
   height: 44px;
+  min-width: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +59,17 @@
   color: #0a0f1c;
   font-weight: 800;
   font-size: 1.1rem;
-  border-radius: 12px;
+  border-radius: 50%;
+  position: relative;
+}
+.testimonial-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--gradient);
+  z-index: -1;
+  opacity: 0.5;
 }
 .testimonial-name {
   font-size: 0.92rem;
@@ -54,15 +81,15 @@
   color: var(--text-muted);
 }
 .testimonial-nav {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -70,6 +97,11 @@
 .testimonial-nav:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: scale(1.05);
+}
+.testimonial-nav:active {
+  transform: scale(0.95);
 }
 .testimonial-dots {
   display: flex;
@@ -90,6 +122,12 @@
   background: var(--accent);
   width: 28px;
   border-radius: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-nav, .dot {
+    transition: none !important;
+  }
 }
 
 @media (max-width: 768px) {

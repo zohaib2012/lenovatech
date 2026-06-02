@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LenovaTech Logo — Stacked</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html,body { background: transparent; }
+  .canvas { width: 800px; height: 900px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; font-family: 'Inter', sans-serif; }
+  .hex { width: 300px; height: 332px; }
+  .hex svg { width: 100%; height: 100%; }
+  .text { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+  .name { font-size: 84px; font-weight: 800; letter-spacing: 3px; }
+  .name .a { color: #eaf2fb; } .name .b { background: linear-gradient(120deg,#00bfa5,#7cff6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub { font-size: 23px; font-weight: 500; letter-spacing: 13px; color: #8892a4; margin-top: 18px; padding-left: 6px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="hex">
+    <svg viewBox="0 0 50 54" fill="none">
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a6fb5"/><stop offset="50%" stop-color="#00bfa5"/><stop offset="100%" stop-color="#7cff6b"/></linearGradient></defs>
+      <polygon points="25,2 46,14 46,40 25,52 4,40 4,14" stroke="url(#g1)" stroke-width="2.5" fill="rgba(0,191,165,0.04)"/>
+      <path d="M19,15 L19,38 L35,38" stroke="url(#g1)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M19,15 L30,24" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <circle cx="46" cy="14" r="2.6" fill="#7cff6b"/>
+    </svg>
+  </div>
+  <div class="text">
+    <div class="name"><span class="a">LENOVA</span><span class="b">TECH</span></div>
+    <div class="sub">INNOVATIVE IT SOLUTIONS</div>
+  </div>
+</div>
+</body>
+</html>

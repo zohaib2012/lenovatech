@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LenovaTech — Feed Ad (Services)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html,body { background: #0a1018; }
+
+  /* META FEED SQUARE: 1080 x 1080 */
+  .creative {
+    width: 1080px; height: 1080px;
+    background:
+      radial-gradient(circle at 80% 8%, rgba(0,191,165,0.20), transparent 45%),
+      radial-gradient(circle at 8% 92%, rgba(124,255,107,0.12), transparent 45%),
+      linear-gradient(155deg, #0a1018 0%, #0f1a28 55%, #0a1018 100%);
+    font-family: 'Inter', sans-serif;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 70px;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,191,165,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,191,165,0.04) 1px, transparent 1px);
+    background-size: 54px 54px;
+    -webkit-mask-image: radial-gradient(circle at 50% 38%, #000 30%, transparent 75%);
+  }
+  .ring { position: absolute; border-radius: 50%; }
+  .ring-1 { width: 640px; height: 640px; top: -190px; right: -170px; border: 1.5px solid rgba(0,191,165,0.12); }
+  .ring-2 { width: 430px; height: 430px; top: -85px; right: -65px; border: 1.5px solid rgba(124,255,107,0.12); }
+
+  .inner { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; }
+
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .hex { width: 60px; height: 66px; display: flex; align-items: center; justify-content: center; }
+  .hex svg { width: 100%; height: 100%; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1; }
+  .brand-name { font-size: 30px; font-weight: 800; letter-spacing: 1px; }
+  .brand-name .a { color: #ffffff; }
+  .brand-name .b { background: linear-gradient(120deg,#00bfa5,#7cff6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .brand-sub { font-size: 11px; font-weight: 500; letter-spacing: 4px; color: #6b7a8f; margin-top: 6px; }
+  .tag { font-size: 14px; font-weight: 600; color: #00bfa5; padding: 10px 22px; border: 1px solid rgba(0,191,165,0.35); border-radius: 100px; background: rgba(0,191,165,0.06); }
+
+  .pill { align-self: flex-start; margin-top: 66px; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7cff6b; padding: 9px 20px; border-radius: 8px; background: rgba(124,255,107,0.08); border: 1px solid rgba(124,255,107,0.25); }
+  .headline { margin-top: 26px; font-size: 76px; font-weight: 900; color: #f1f5f9; line-height: 1.04; letter-spacing: -1.5px; }
+  .headline .grad { background: linear-gradient(120deg,#00bfa5,#7cff6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subhead { margin-top: 24px; font-size: 22px; color: #9fb0c3; font-weight: 500; line-height: 1.5; max-width: 780px; }
+
+  .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 50px; }
+  .pillar { background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(0,191,165,0.18); border-radius: 20px; padding: 30px 24px; }
+  .pillar .ic { font-size: 40px; }
+  .pillar .nm { font-size: 22px; font-weight: 800; color: #f1f5f9; margin-top: 16px; }
+  .pillar .ds { font-size: 14px; font-weight: 500; color: #8497ab; margin-top: 10px; line-height: 1.5; }
+
+  .strip { display: flex; gap: 28px; margin-top: 36px; }
+  .strip .item { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #c3d0de; font-weight: 600; }
+  .strip .dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(120deg,#00bfa5,#7cff6b); box-shadow: 0 0 12px rgba(0,191,165,0.6); }
+
+  .footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .cta { display: flex; align-items: center; gap: 12px; padding: 20px 40px; border-radius: 14px; background: linear-gradient(120deg,#00bfa5,#7cff6b); color: #06121a; font-size: 22px; font-weight: 800; box-shadow: 0 12px 40px rgba(0,191,165,0.35); }
+  .contact { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .contact .row { font-size: 17px; color: #c3d0de; font-weight: 600; }
+  .contact .row span { color: #6b7a8f; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="creative">
+  <div class="grid"></div>
+  <div class="ring ring-1"></div>
+  <div class="ring ring-2"></div>
+  <div class="inner">
+    <div class="header">
+      <div class="brand">
+        <div class="hex">
+          <svg viewBox="0 0 50 54" fill="none">
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a6fb5"/><stop offset="50%" stop-color="#00bfa5"/><stop offset="100%" stop-color="#7cff6b"/></linearGradient></defs>
+            <polygon points="25,2 46,14 46,40 25,52 4,40 4,14" stroke="url(#g1)" stroke-width="2.5" fill="rgba(0,191,165,0.05)"/>
+            <path d="M19,15 L19,38 L35,38" stroke="url(#g1)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M19,15 L30,24" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle cx="46" cy="14" r="2.4" fill="#7cff6b"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name"><span class="a">LENOVA</span><span class="b">TECH</span></div>
+          <div class="brand-sub">INNOVATIVE IT SOLUTIONS</div>
+        </div>
+      </div>
+      <div class="tag">lenovatech.site</div>
+    </div>
+
+    <div class="pill">Complete Software Development</div>
+    <div class="headline">Websites. Apps.<br><span class="grad">AI Products.</span></div>
+    <div class="subhead">100% custom-built solutions — designed, developed & delivered by one expert in-house team. No templates, sirf pure custom code.</div>
+
+    <div class="pillars">
+      <div class="pillar"><div class="ic">🌐</div><div class="nm">Web Development</div><div class="ds">Custom websites, web apps, portals & dashboards</div></div>
+      <div class="pillar"><div class="ic">📱</div><div class="nm">Mobile Apps</div><div class="ds">Android & iOS apps for every business need</div></div>
+      <div class="pillar"><div class="ic">🤖</div><div class="nm">AI Products</div><div class="ds">Chatbots, automation & smart ML solutions</div></div>
+    </div>
+
+    <div class="strip">
+      <div class="item"><span class="dot"></span>100% Custom Code</div>
+      <div class="item"><span class="dot"></span>You Own Everything</div>
+      <div class="item"><span class="dot"></span>9+ Years Experience</div>
+    </div>
+
+    <div class="footer">
+      <div class="cta">Get a Free Quote →</div>
+      <div class="contact">
+        <div class="row"><span>📞</span> 0330-6553479</div>
+        <div class="row"><span>✉️</span> lenovatech69@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

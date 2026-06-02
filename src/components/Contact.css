@@ -36,11 +36,13 @@
   background: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: 12px;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 .contact-info-item:hover {
   border-color: var(--accent);
   transform: translateX(4px);
+  box-shadow: var(--shadow-glow);
 }
 .contact-info-icon {
   width: 40px;
@@ -52,6 +54,11 @@
   background: var(--gradient-glow);
   border-radius: 10px;
   color: var(--accent);
+  transition: all 0.3s ease;
+}
+.contact-info-item:hover .contact-info-icon {
+  background: var(--gradient);
+  color: #0a0f1c;
 }
 .contact-info-label {
   font-size: 0.78rem;
@@ -65,7 +72,6 @@
   color: var(--text-primary);
   font-weight: 600;
 }
-/* Form */
 .contact-form {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -79,6 +85,7 @@
 }
 .form-group {
   margin-bottom: 20px;
+  position: relative;
 }
 .form-group label {
   display: block;
@@ -86,6 +93,7 @@
   font-weight: 600;
   color: var(--text-secondary);
   margin-bottom: 8px;
+  transition: all 0.3s ease;
 }
 .form-group input,
 .form-group select,
@@ -105,7 +113,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 191, 165, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 191, 165, 0.1), 0 0 20px rgba(0, 191, 165, 0.05);
 }
 .form-group textarea {
   resize: vertical;
@@ -119,11 +127,45 @@
   background-position: right 14px center;
   padding-right: 36px;
 }
+.form-error {
+  font-size: 0.78rem;
+  color: #ef4444;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.form-group.error input,
+.form-group.error textarea {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
 .contact-submit {
   width: 100%;
   justify-content: center;
   padding: 16px;
   font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.contact-submit:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.contact-submit .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: #0a0f1c;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-info-item, .contact-info-icon, .contact-submit .spinner {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 @media (max-width: 768px) {

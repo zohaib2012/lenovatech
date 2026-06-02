@@ -1,11 +1,21 @@
 .about-section {
   background: var(--bg-secondary);
+  position: relative;
+}
+.about-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 30% 50%, rgba(0, 191, 165, 0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .about-left .section-subtitle {
   margin-bottom: 32px;
@@ -45,11 +55,27 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.reason-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 .reason-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow-glow);
   transform: translateX(4px);
+}
+.reason-card:hover::before {
+  opacity: 1;
 }
 .reason-icon {
   width: 48px;
@@ -61,6 +87,11 @@
   background: var(--gradient-glow);
   border-radius: 12px;
   color: var(--accent);
+  transition: all 0.3s ease;
+}
+.reason-card:hover .reason-icon {
+  background: var(--gradient);
+  color: #0a0f1c;
 }
 .reason-title {
   font-size: 0.95rem;
@@ -72,6 +103,12 @@
   font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reason-card, .reason-card::before, .reason-icon {
+    transition: none !important;
+  }
 }
 
 @media (max-width: 768px) {
