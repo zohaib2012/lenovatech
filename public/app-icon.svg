@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1729"/>
+      <stop offset="100%" stop-color="#060a12"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a6fb5"/>
+      <stop offset="50%" stop-color="#00bfa5"/>
+      <stop offset="100%" stop-color="#7cff6b"/>
+    </linearGradient>
+    <linearGradient id="iconGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00bfa5"/>
+      <stop offset="100%" stop-color="#7cff6b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+
+  <rect x="2" y="2" width="508" height="508" rx="94" stroke="url(#iconGrad)" stroke-width="3" opacity="0.15"/>
+
+  <g transform="translate(256, 256)">
+    <polygon points="0,-90 72,-45 72,45 0,90 -72,45 -72,-45" stroke="url(#iconGrad)" stroke-width="8" fill="none"/>
+
+    <path d="M-30,-45 L-30,45 L45,45" stroke="url(#iconGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M-30,-45 L5,-20" stroke="url(#iconGrad2)" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+    <circle cx="72" cy="-45" r="6" fill="#7cff6b" opacity="0.9"/>
+  </g>
+</svg>
