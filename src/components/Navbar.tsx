@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import Logo from './Logo';
+import DownloadApp from './DownloadApp';
 import './Navbar.css';
 
 interface NavLink {
@@ -100,6 +101,7 @@ export default function Navbar() {
               </a>
             );
           })}
+          <DownloadApp variant="navbar" />
           {isHome ? (
             <button className="btn btn-primary nav-cta" onClick={() => handleSectionClick('#contact')}>
               Get a Quote

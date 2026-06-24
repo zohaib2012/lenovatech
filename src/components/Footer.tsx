@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { HiHeart } from 'react-icons/hi';
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import Logo from './Logo';
+import DownloadApp from './DownloadApp';
 import './Footer.css';
 
 interface FooterLink {
@@ -81,6 +82,11 @@ export default function Footer() {
                     )}
                   </li>
                 ))}
+                {title === 'Contact' && (
+                  <li>
+                    <DownloadApp variant="footer" />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
